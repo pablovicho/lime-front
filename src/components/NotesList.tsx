@@ -1,4 +1,4 @@
-import type { Note } from '../models';
+import type { Note } from '@/models';
 
 interface NotesListProps {
   notes: Note[];

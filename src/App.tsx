@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { api } from './services/api';
-import type { Patient, Note } from './models';
-import PatientSelector from './components/PatientSelector';
-import NoteForm from './components/NoteForm';
-import NotesList from './components/NotesList';
-import NoteDetail from './components/NoteDetail';
-import PatientSidebar from './components/PatientSidebar';
+import { api } from '@/services/api';
+import type { Patient, Note } from '@/models';
+import PatientSelector from '@/components/PatientSelector';
+import NoteForm from '@/components/NoteForm';
+import NotesList from '@/components/NotesList';
+import NoteDetail from '@/components/NoteDetail';
+import PatientSidebar from '@/components/PatientSidebar';
 
 function App() {
   const [patients, setPatients] = useState<Patient[]>([]);

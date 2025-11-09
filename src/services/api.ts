@@ -1,4 +1,4 @@
-import type { Patient, Note } from '../models';
+import type { Patient, Note } from '@/models';
 
 const API_BASE_URL = 'http://localhost:3000/api';
 
