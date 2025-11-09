@@ -26,7 +26,7 @@ export default function NoteDetail({ note, onClose }: NoteDetailProps) {
     >
       <div
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgba(53, 50, 50, 0.87)',
           padding: '30px',
           borderRadius: '8px',
           maxWidth: '700px',
@@ -43,7 +43,7 @@ export default function NoteDetail({ note, onClose }: NoteDetailProps) {
             style={{
               padding: '8px 16px',
               fontSize: '14px',
-              backgroundColor: '#f0f0f0',
+              backgroundColor: 'rgba(53, 50, 50, 0.87)',
               border: 'none',
               borderRadius: '4px',
               cursor: 'pointer',
@@ -64,7 +64,7 @@ export default function NoteDetail({ note, onClose }: NoteDetailProps) {
           <h3>Content</h3>
           <div style={{ 
             whiteSpace: 'pre-wrap', 
-            backgroundColor: '#f9f9f9', 
+            backgroundColor: 'rgba(53, 50, 50, 0.87)', 
             padding: '15px', 
             borderRadius: '4px',
             border: '1px solid #e0e0e0',
@@ -80,7 +80,7 @@ export default function NoteDetail({ note, onClose }: NoteDetailProps) {
             <h3>Original Transcription</h3>
             <div style={{ 
               whiteSpace: 'pre-wrap', 
-              backgroundColor: '#f0f0f0', 
+              backgroundColor: 'rgba(53, 50, 50, 0.87)', 
               padding: '15px', 
               borderRadius: '4px',
               border: '1px solid #d0d0d0',
