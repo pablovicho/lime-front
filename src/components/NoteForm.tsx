@@ -69,6 +69,7 @@ export default function NoteForm({ onSubmitText, onSubmitAudio, disabled }: Note
             fontSize: '14px',
             borderRadius: '4px',
             border: '1px solid #ccc',
+            boxSizing: 'border-box',
           }}
         />
       </div>
@@ -92,6 +93,7 @@ export default function NoteForm({ onSubmitText, onSubmitAudio, disabled }: Note
               borderRadius: '4px',
               border: '1px solid #ccc',
               fontFamily: 'inherit',
+              boxSizing: 'border-box',
             }}
           />
         </div>
@@ -110,6 +112,7 @@ export default function NoteForm({ onSubmitText, onSubmitAudio, disabled }: Note
               width: '100%',
               padding: '10px',
               fontSize: '14px',
+              boxSizing: 'border-box',
             }}
           />
           {audioFile && <p style={{ marginTop: '5px', fontSize: '12px', color: '#666' }}>Selected: {audioFile.name}</p>}
