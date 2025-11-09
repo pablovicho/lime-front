@@ -9,7 +9,7 @@ export default function PatientSidebar({ patient }: PatientSidebarProps) {
     return (
       <div style={{
         padding: '20px',
-        backgroundColor: '#f9f9f9',
+        backgroundColor: 'rgba(53, 50, 50, 0.87)',
         borderRadius: '8px',
         border: '1px solid #ddd',
       }}>
@@ -22,7 +22,7 @@ export default function PatientSidebar({ patient }: PatientSidebarProps) {
   return (
     <div style={{
       padding: '20px',
-      backgroundColor: '#f9f9f9',
+      backgroundColor: 'rgba(53, 50, 50, 0.87)',
       borderRadius: '8px',
       border: '1px solid #ddd',
     }}>
