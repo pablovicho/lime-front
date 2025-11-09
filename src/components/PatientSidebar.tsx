@@ -1,4 +1,4 @@
-import { Patient } from '../services/api';
+import type { Patient } from '../models';
 
 interface PatientSidebarProps {
   patient: Patient | null;

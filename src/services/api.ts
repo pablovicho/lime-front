@@ -1,56 +1,59 @@
+import type { Patient, Note } from '../models';
+
 const API_BASE_URL = 'http://localhost:3000/api';
 
-export interface Patient {
-  id: string;
-  firstName: string;
-  lastName: string;
+interface PatientResponse extends Omit<Patient, 'dateOfBirth' | 'createdAt' | 'updatedAt'> {
   dateOfBirth: string;
-  gender: string;
-  phoneNumber?: string;
-  email?: string;
-  medicalRecordNumber?: string;
-}
-
-export interface Note {
-  id: string;
-  patientId: string;
-  title: string;
-  content: string;
-  inputType: 'text' | 'audio';
-  originalInput: string;
-  audioFileUrl?: string;
-  status: string;
-  createdBy?: string;
   createdAt: string;
   updatedAt: string;
-  patient?: Patient;
 }
+
+interface NoteResponse extends Omit<Note, 'createdAt' | 'updatedAt'> {
+  createdAt: string;
+  updatedAt: string;
+  patient?: PatientResponse;
+}
+
+// Helper to convert API response to model
+const toPatient = (data: PatientResponse): Patient => ({
+  ...data,
+  dateOfBirth: new Date(data.dateOfBirth),
+  createdAt: new Date(data.createdAt),
+  updatedAt: new Date(data.updatedAt),
+});
+
+const toNote = (data: NoteResponse): Note => ({
+  ...data,
+  originalInput: data.originalInput || '',
+  createdAt: new Date(data.createdAt),
+  updatedAt: new Date(data.updatedAt),
+});
 
 export const api = {
   // Patients
   async getPatients(): Promise<Patient[]> {
     const response = await fetch(`${API_BASE_URL}/patients`);
     const data = await response.json();
-    return data.data;
+    return data.data.map(toPatient);
   },
 
   async getPatient(id: string): Promise<Patient> {
     const response = await fetch(`${API_BASE_URL}/patients/${id}`);
     const data = await response.json();
-    return data.data;
+    return toPatient(data.data);
   },
 
   // Notes
   async getNotes(): Promise<Note[]> {
     const response = await fetch(`${API_BASE_URL}/notes`);
     const data = await response.json();
-    return data.data;
+    return data.data.map(toNote);
   },
 
   async getNotesByPatient(patientId: string): Promise<Note[]> {
     const response = await fetch(`${API_BASE_URL}/notes/patient/${patientId}`);
     const data = await response.json();
-    return data.data;
+    return data.data.map(toNote);
   },
 
   async createTextNote(patientId: string, title: string, content: string, createdBy?: string): Promise<Note> {
@@ -68,7 +71,7 @@ export const api = {
       }),
     });
     const data = await response.json();
-    return data.data;
+    return toNote(data.data);
   },
 
   async createAudioNote(
@@ -88,6 +91,6 @@ export const api = {
       body: formData,
     });
     const data = await response.json();
-    return data.data.note;
+    return toNote(data.data.note);
   },
 };

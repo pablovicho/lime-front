@@ -1,4 +1,4 @@
-import { Note } from '../services/api';
+import type { Note } from '../models';
 
 interface NoteDetailProps {
   note: Note | null;

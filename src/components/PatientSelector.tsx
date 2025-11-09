@@ -1,4 +1,4 @@
-import type { Patient } from '../services/api';
+import type { Patient } from '../models';
 
 interface PatientSelectorProps {
   patients: Patient[];
